@@ -1,0 +1,14 @@
+# Prisma API HTTP endpoint
+#endpoint: '' replace this line awith own endpoint
+endpoint: YOUR_ENDPOINT_PATH
+
+# Data model file name
+datamodel: datamodel.graphql
+
+# API access secret
+secret: testsecret
+
+# Deploy hook
+hooks:
+  post-deploy:
+    - graphql get-schema --project database
