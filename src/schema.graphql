@@ -1,0 +1,10 @@
+# import Dog from "./generated/prisma.graphql"
+
+type Query {
+  dogName: String!
+  dogs: [Dog!]!
+}
+
+type Mutation {
+  dog(type: String!, name: String!): Dog!
+}
