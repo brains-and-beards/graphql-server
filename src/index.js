@@ -12,7 +12,7 @@ const resolvers = {
       return context.db.query.user({ where: { id: root.user.id } }, info);
     }
   },
-  Mutation: Mutation
+  Mutation
 };
 
 const server = new GraphQLServer({
