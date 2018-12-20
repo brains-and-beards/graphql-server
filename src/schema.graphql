@@ -1,10 +1,15 @@
 # import Dog from "./generated/prisma.graphql"
+# import AuthPayload from "./generated/prisma.graphql"
 
 type Query {
   dogName: String!
   dogs: [Dog!]!
+  user: User!
 }
 
 type Mutation {
   dog(type: String!, name: String!): Dog!
+  updateDog(id: String!, type: String!, name: String!): Dog!
+  signUp(email: String!, password: String!, name: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
 }
