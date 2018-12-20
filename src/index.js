@@ -1,26 +1,18 @@
 const { GraphQLServer } = require('graphql-yoga');
 const { Prisma } = require('prisma-binding');
+const Mutation = require('./Mutations');
 
 const resolvers = {
   Query: {
     dogName: () => `Tommy the chihuahua`,
     dogs: (root, args, context, queryInfo) => {
       return context.db.query.dogs({}, queryInfo);
+    },
+    user: (root, args, context, info) => {
+      return context.db.query.user({ where: { id: root.user.id } }, info);
     }
   },
-  Mutation: {
-    dog: (root, args, context, queryInfo) => {
-      return context.db.mutation.createDog(
-        {
-          data: {
-            type: args.type,
-            name: args.name
-          }
-        },
-        queryInfo
-      );
-    }
-  }
+  Mutation: Mutation
 };
 
 const server = new GraphQLServer({
@@ -36,4 +28,7 @@ const server = new GraphQLServer({
     })
   })
 });
-server.start(() => console.log(`Server address: http://localhost:4000`));
+
+server.start({ port: process.env.PORT || 4000 }, () =>
+  console.log(`Server address: http://localhost:4000`)
+);
