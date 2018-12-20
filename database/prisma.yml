@@ -1,6 +1,6 @@
 # Prisma API HTTP endpoint
 #endpoint: '' replace this line awith own endpoint
-endpoint: YOUR_ENDPOINT_PATH
+endpoint: https://eu1.prisma.sh/natalia-majkowska/dogs-service/dev
 
 # Data model file name
 datamodel: datamodel.graphql

@@ -1,2 +1,6 @@
 # graphql-server
-Example server for graphql and prisma
+
+Example server for graphql and Prisma
+
+Source code for article:
+...

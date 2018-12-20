@@ -3,3 +3,16 @@ type Dog {
   name: String!
   type: String!
 }
+
+type User {
+  id: ID! @unique
+  name: String!
+  email: String!
+  password: String!
+  dogs: [Dog!]!
+}
+
+type AuthPayload {
+  user: User
+  token: String
+}
